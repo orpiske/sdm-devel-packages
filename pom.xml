@@ -49,7 +49,7 @@
 	
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
+		<sourceDirectory>packages</sourceDirectory>
 		<testSourceDirectory>test/java</testSourceDirectory>
 		<testResources>
 			<testResource>
@@ -94,36 +94,4 @@
 			<timezone>-3</timezone>
 		</developer>
 	</developers>
-
-	<profiles>
-		<profile>
-			<id>Delivery</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-assembly-plugin</artifactId>
-						<configuration>
-							<descriptors>
-								<descriptor>
-									src/main/assembly/sdm-packages.xml
-								</descriptor>
-							</descriptors>
-							<appendAssemblyId>true</appendAssemblyId>
-
-
-						</configuration>
-
-					
-					</plugin>
-				</plugins>
-
-			</build>
-
-		</profile>
-
-	</profiles>
 </project>
