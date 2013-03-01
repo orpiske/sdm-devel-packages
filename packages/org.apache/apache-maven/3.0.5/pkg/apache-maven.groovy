@@ -1,5 +1,5 @@
 
-import net.orpiske.sdm.common.InstallDirUtils;
+import net.orpiske.ssps.common.repository.utils.InstallDirUtils;
 import net.orpiske.sdm.common.WorkdirUtils;
 import net.orpiske.sdm.lib.io.IOUtil;
 import net.orpiske.sdm.packages.BinaryPackage;
