@@ -34,9 +34,9 @@ class ApacheMaven extends BinaryPackage {
 		String installdir = InstallDirUtils.getInstallDir()
 		String workdir = WorkdirUtils.getWorkDir()
 		
-		IOUtil.copy("${workdir}/db-derby-${version}", "${installdir}/${name}-${version}");
+		IOUtil.copy("${workdir}/db-derby-${version}-bin", "${installdir}/${name}-${version}");
 		
-		println "Installing ${workdir}/db-derby-${version} to ${installdir}"
+		println "Installing ${workdir}/db-derby-${version}-bin to ${installdir}"
 		
 		if (isNix()) {
 			println "Creating symlinks"
