@@ -4,8 +4,7 @@ import net.orpiske.sdm.common.WorkdirUtils;
 import net.orpiske.sdm.lib.io.IOUtil;
 import net.orpiske.sdm.packages.BinaryPackage;
 
-import static net.orpiske.sdm.lib.net.Downloader.*;
-import static net.orpiske.sdm.lib.Unpack.*;
+
 import static net.orpiske.sdm.lib.OsUtils.*;
 import static net.orpiske.sdm.lib.io.IOUtil.*;
 import static net.orpiske.sdm.lib.Core.*;
@@ -17,19 +16,6 @@ class ApacheMaven extends BinaryPackage {
 	def url = "http://apache.mirror.pop-sc.rnp.br/apache/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz"
 	def installdir = InstallDirUtils.getInstallDir()
 
-	void fetch(String url) {
-		super.fetch(url)
-	
-		
-		println "Fetching ${url}"
-		download(url)		
-	}
-	
-	
-	void extract(String artifactName) {
-		unpack(artifactName)
-	}
-	
 	
 	void install(String artifactName) {		
 		String workdir = WorkdirUtils.getWorkDir()
@@ -50,7 +36,4 @@ class ApacheMaven extends BinaryPackage {
 			exec("/bin/unlink", "${installdir}/${name}")
 		}
 	}
-
-	
-	
 }
