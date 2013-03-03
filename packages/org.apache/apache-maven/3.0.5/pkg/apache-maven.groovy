@@ -14,8 +14,8 @@ import static net.orpiske.sdm.lib.Executable.*;
 class ApacheMaven extends BinaryPackage {
 	def version = "3.0.5"
 	def name = "apache-maven"
-	
 	def url = "http://apache.mirror.pop-sc.rnp.br/apache/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz"
+	def installdir = InstallDirUtils.getInstallDir()
 
 	void fetch(String url) {
 		super.fetch(url)
@@ -31,15 +31,12 @@ class ApacheMaven extends BinaryPackage {
 	}
 	
 	
-	void install(String artifactName) {
-		String installdir = InstallDirUtils.getInstallDir()
+	void install(String artifactName) {		
 		String workdir = WorkdirUtils.getWorkDir()
-		
-		shield("${installdir}/${name}-${version}/conf/settings.xml")
-		//IOUtil.copy("${workdir}/${name}-${version}", "${installdir}/${name}-${version}");
+
+		shield("${installdir}/${name}-${version}/conf/settings.xml")		
 		
 		performInstall("${name}", "${version}")
-		
 		
 		if (isNix()) {
 			println "Creating symlinks"
