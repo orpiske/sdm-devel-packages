@@ -16,16 +16,14 @@ class ApacheMaven extends BinaryPackage {
 	
 	def url = "http://apache.mirror.pop-sc.rnp.br/apache/db/derby/db-derby-10.9.1.0/db-derby-${version}-bin.tar.gz"
 	
-	void install(String artifactName) {
-		String workdir = WorkdirUtils.getWorkDir()
+	void install(String artifactName) {	
+		performInstall("${workDir}/db-derby-${version}-bin", "${name}", "${version}")
 		
-		performInstall("${workdir}/db-derby-${version}-bin", "${name}", "${version}")
-		
-		println "Installing ${workdir}/db-derby-${version}-bin to ${installdir}"
+		println "Installing ${workDir}/db-derby-${version}-bin to ${installDir}"
 		
 		if (isNix()) {
 			println "Creating symlinks"
-			exec("/bin/ln", "-sf ${installdir}/${name}-${version} ${installdir}/${name}")
+			exec("/bin/ln", "-sf ${installDir}/${name}-${version} ${installDir}/${name}")
 		}
 	}	
 
@@ -33,7 +31,7 @@ class ApacheMaven extends BinaryPackage {
 	void uninstall() {
 		if (isNix()) {
 			println "Removing symlinks"
-			exec("/bin/unlink", "${installdir}/${name}")
+			exec("/bin/unlink", "${installDir}/${name}")
 		}
 	}
 	
