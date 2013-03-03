@@ -8,6 +8,7 @@ import static net.orpiske.sdm.lib.net.Downloader.*;
 import static net.orpiske.sdm.lib.Unpack.*;
 import static net.orpiske.sdm.lib.OsUtils.*;
 import static net.orpiske.sdm.lib.io.IOUtil.*;
+import static net.orpiske.sdm.lib.Core.*;
 import static net.orpiske.sdm.lib.Executable.*;
 
 class ApacheMaven extends BinaryPackage {
@@ -35,15 +36,23 @@ class ApacheMaven extends BinaryPackage {
 		String workdir = WorkdirUtils.getWorkDir()
 		
 		shield("${installdir}/${name}-${version}/conf/settings.xml")
-		IOUtil.copy("${workdir}/${name}-${version}", "${installdir}/${name}-${version}");
+		//IOUtil.copy("${workdir}/${name}-${version}", "${installdir}/${name}-${version}");
 		
-		println "Installing ${workdir}/${name}-${version} to ${installdir}"
+		performInstall("${name}", "${version}")
+		
 		
 		if (isNix()) {
 			println "Creating symlinks"
 			exec("/bin/ln", "-sf ${installdir}/${name}-${version} ${installdir}/${name}")
 		}
-	}	
+	}
+	
+	void uninstall() {
+		if (isNix()) {
+			println "Removing symlinks"
+			exec("/bin/unlink", "${installdir}/${name}")
+		}
+	}
 
 	
 	
