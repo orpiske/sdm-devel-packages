@@ -16,7 +16,7 @@ class ApacheMaven extends BinaryPackage {
 
 	def url = "http://apache.mirror.pop-sc.rnp.br/apache/maven/maven-2/${version}/binaries/apache-maven-${version}-bin.tar.gz"
 	
-	void install(String artifactName) {
+	void install() {
 		shield("${installDir}/${name}-${version}/conf/settings.xml")		
 		
 		performInstall("${name}", "${version}")
