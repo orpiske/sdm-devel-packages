@@ -16,7 +16,7 @@ class ApacheMaven extends BinaryPackage {
 	def name = "apache-ant"	
 	def url = "http://ftp.unicamp.br/pub/apache/ant/binaries/${name}-${version}-bin.tar.gz"
 
-	void install(String artifactName) {
+	void install() {
 		performInstall("${name}", "${version}")
 		
 		println "Installing ${workDir}/${name}-${version} to ${installDir}"

@@ -14,9 +14,9 @@ class ApacheMaven extends BinaryPackage {
 	def version = "10.9.1.0"
 	def name = "apache-derby"
 	
-	def url = "http://apache.mirror.pop-sc.rnp.br/apache/db/derby/db-derby-10.9.1.0/db-derby-${version}-bin.tar.gz"
+	def url = "http://apache.mirror.pop-sc.rnp.br/apache/db/derby/db-derby-${version}/db-derby-${version}-bin.tar.gz"
 	
-	void install(String artifactName) {	
+	void install() {	
 		performInstall("${workDir}/db-derby-${version}-bin", "${name}", "${version}")
 		
 		println "Installing ${workDir}/db-derby-${version}-bin to ${installDir}"
