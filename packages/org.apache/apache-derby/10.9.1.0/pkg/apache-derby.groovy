@@ -10,7 +10,7 @@ import static net.orpiske.sdm.lib.Executable.*;
 
 import static net.orpiske.sdm.lib.Core.*;
 
-class ApacheMaven extends BinaryPackage {
+class ApacheDerby extends BinaryPackage {
 	def version = "10.9.1.0"
 	def name = "apache-derby"
 	

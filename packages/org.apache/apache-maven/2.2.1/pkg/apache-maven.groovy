@@ -10,7 +10,7 @@ import static net.orpiske.sdm.lib.io.IOUtil.*;
 import static net.orpiske.sdm.lib.Core.*;
 import static net.orpiske.sdm.lib.Executable.*;
 
-class ApacheMaven extends BinaryPackage {
+class ApacheMaven2 extends BinaryPackage {
 	def version = "2.2.1"
 	def name = "apache-maven"
 

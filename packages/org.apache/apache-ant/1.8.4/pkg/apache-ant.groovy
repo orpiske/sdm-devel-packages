@@ -11,7 +11,7 @@ import static net.orpiske.sdm.lib.Executable.*;
 
 import static net.orpiske.sdm.lib.Core.*;
 
-class ApacheMaven extends BinaryPackage {
+class ApacheAnt extends BinaryPackage {
 	def version = "1.8.4"
 	def name = "apache-ant"	
 	def url = "http://ftp.unicamp.br/pub/apache/ant/binaries/${name}-${version}-bin.tar.gz"
