@@ -13,6 +13,7 @@ import static net.orpiske.sdm.lib.Executable.*;
 class ApacheMaven2 extends BinaryPackage {
 	def version = "2.2.1"
 	def name = "apache-maven"
+	def slot = "n.n.*"
 
 	def url = "http://apache.mirror.pop-sc.rnp.br/apache/maven/maven-2/${version}/binaries/apache-maven-${version}-bin.tar.gz"
 	
