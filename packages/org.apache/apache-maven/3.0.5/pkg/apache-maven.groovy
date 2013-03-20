@@ -9,7 +9,7 @@ import static net.orpiske.sdm.lib.Executable.*;
 class ApacheMaven extends BinaryPackage {
 	def version = "3.0.5"
 	def name = "apache-maven"
-	def url = "http://apache.mirror.pop-sc.rnp.br/apache/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz"
+	def url = "http://www.us.apache.org/dist/maven/maven-3/${version}/binaries/${name}-${version}-bin.tar.gz"
 
 	void install() {
 		shield("${installDir}/${name}-${version}/conf/settings.xml")
