@@ -1,7 +1,7 @@
-SSPS: Packages
+SDM Devel: Packages
 ============
 
-This is source packages repository for the Software Deployment Module (SDM).
+This is package repository for the development version of Software Deployment Module (SDM).
 
 References
 ----
