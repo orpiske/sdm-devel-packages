@@ -11,7 +11,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.orpiske</groupId>
 	<artifactId>sdm-packages</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<url>http://www.orpiske.net/ssps/</url>
 
 	<licenses>
@@ -30,13 +30,13 @@
 		<dependency>
 			<groupId>net.orpiske</groupId>
 			<artifactId>sdm-common</artifactId>
-			<version>0.2.0-SNAPSHOT</version>
+			<version>0.3.0-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>net.orpiske</groupId>
 			<artifactId>ssps-common</artifactId>
-			<version>0.2.0-SNAPSHOT</version>
+			<version>0.3.0-SNAPSHOT</version>
 		</dependency>
 
 
