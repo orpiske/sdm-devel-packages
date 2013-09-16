@@ -1,4 +1,4 @@
-import net.orpiske.sdm.packages.BinaryPackage
+import net.orpiske.sdm.packages.SourcePackage
 import net.orpiske.sdm.plugins.scm.SourceRepository
 import net.orpiske.sdm.plugins.builders.ProjectBuilder;
 import net.orpiske.sdm.plugins.builders.MavenBuilder;
@@ -8,28 +8,30 @@ import static net.orpiske.sdm.lib.OsUtils.*
 import static net.orpiske.sdm.lib.Core.*;
 import static net.orpiske.sdm.lib.Executable.*;
 
-class sdm extends BinaryPackage {
+class sdm extends SourcePackage {
     def version = "0.3.0-SNAPSHOT"
     def name = "sdm"
-    def url = ""
-    def srcUrl = "https://github.com/orpiske/sdm.git"
-    
-
-    @Override
-    def void build() {
-        File buildDir = new File("${workDir}/${name}-${version}-build")
+    def url = "https://github.com/orpiske/sdm.git"
+       
+    def File buildDir = new File("${workDir}/${name}-${version}-build")
         
+    void fetch(final String url) {
+        println "Checking out the code to " + buildDir.getPath();
+
         if (buildDir.exists()) {
             println "Cleaning up previously created directory"
             FileUtils.deleteDirectory(buildDir)
         }
-        
-        println "Checking out the code to " + buildDir.getPath();
+
         SourceRepository repository = new SourceRepository()
-        repository.checkout(srcUrl, buildDir.getPath())
-       
+        repository.checkout(url, buildDir.getPath())
+    }
+    
+
+    @Override
+    void build() {
         ProjectBuilder builder = new MavenBuilder(buildDir)
-        
+
         builder.setProfile("Delivery")
         if (builder.createPackage() == 0) {
             println "Project ${name} compiled successfully"
