@@ -23,7 +23,7 @@ class sdm extends SourcePackage {
             FileUtils.deleteDirectory(buildDir)
         }
 
-        SourceRepository repository = new SourceRepository()
+        SourceRepository repository = new SourceRepository(null, null)
         repository.checkout(url, buildDir.getPath())
     }
     
